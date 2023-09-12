@@ -1,2 +1,4 @@
 * Master de Secundaria
 He creat este repositori per tindre tota la informació relativa al Màster que vaig a cursar el curs 2023-2024 centralitzada i poder realitzar un seguiment del meu treball i els coneixements que vaig adquirint.
+
+La idea inicial és processar la informació en format org-mode, ja que al tractar-se de text pla puc fer servir un sistema de control de versions (git en particular); l'altra alternativa que m'havia plantejat és emprar el format Markdown, que si bé permet emprar moltes eïnes per processar-lo (mentre que amb el formatorg estic limitat quasi exclusivament a Emacs), no crec que tinga tanta versatilitat com el primer: amb el mode org d'Emacs no sols es pot editar i processar text, també mantindre llistes de tarees, agendes, ... entre moltissimes altres coses
