@@ -7,12 +7,11 @@ He creat este repositori per tindre centralitzada tota la informació relativa a
 
 * Format i eïnes emprades
 
-Voldria fer notar que, en principi, tots els programes que empraré són lliures i gratuïts, i, si és possible, instalats localment. Evidenment, referint-me al meu entorn personal, per al treball grupal tindre que adaptar-me al que acorde el grup, així com entregar els treballs/documents en el format indicat pels professors del Màster.
+Voldria fer notar que, si és possible, tots els programes que empraré són lliures, gratuïts i instalats localment. Evidenment, referint-me al meu entorn personal, per al treball grupal tindre que adaptar-me al que acorde el grup, així com entregar els treballs/documents en el format indicat pels professors del Màster.
 
 ** Emacs i org-mode
-La idea inicial és processar la informació en el format [[https://orgmode.org/][org-mode]] d'[[https://www.gnu.org/software/emacs/][Emacs]], entre altres coses, perquè al tractar-se de text pla puc fer servir un sistema de control de versions ([[https://git-scm.com/][git]] en particular).
 
-Una altra raó per la què m'he decidit a emprar este format és que vull aprendre a emprar Emacs i part del seu ecosistema de paquets (extensions), en particular l'esmentat org-mode, però també varis altres (alguns lligats a este, com org-roam), per gestionar tota la meua informació. És a dir, tinc la idea d'emprar git, Emacs, org-mode, org-roam i altres paquets com a base del meu [[https://www.reddit.com/r/PKMS/][PKMS]].
+Tinc la idea d'emprar [[https://www.gnu.org/software/emacs/][Emacs]], [[https://orgmode.org/][org-mode]], i org-roam per processar la informació, entre altres coses, perquè al tractar-se de text pla, puc fer servir un sistema de control de versions ([[https://git-scm.com/][git]] en particular). És a dir, estes eïnes i formats constituiran la base del meu [[https://www.reddit.com/r/PKMS/][PKMS]].
 
 *** Personalitzacions
 Emacs és que es un /editor de text/ completament personalitzable mitjançant[[https://en.wikipedia.org/wiki/Emacs_Lisp][ Lisp]], així que he decidit crear algunes funcions per facilitar-me certes tarees repetitives:
