@@ -13,7 +13,7 @@ Tots els programes que empraré seran lliures, gratuïts i instal·lats localmen
 
 ** Emacs i Zotero
 
-Tinc la idea d'emprar [[https://git-scm.com/][git]], [[https://www.zotero.org][Zotero]] i [[https://www.gnu.org/software/emacs/][Emacs]] (amb els paquets [[https://orgmode.org/][org-mode]], [[https://www.orgroam.com/][org-roam]] i [[https://github.com/org-noter/org-noter][org-noter]]) per construir el meu sistema de gestió del coneixement [cite:@nagelKnowledgeVeryShort2014] personal ([[https://www.reddit.com/r/PKMS/][PKMS)]], i emprar es
+Tinc la idea d'emprar [[https://git-scm.com/][git]], [[https://www.zotero.org][Zotero]] i [[https://www.gnu.org/software/emacs/][Emacs]] (amb els paquets [[https://orgmode.org/][org-mode]], [[https://www.orgroam.com/][org-roam]] i [[https://github.com/org-noter/org-noter][org-noter]]) per construir el meu sistema de gestió del coneixement [cite:@nagelKnowledgeVeryShort2014] personal ([[https://www.reddit.com/r/PKMS/][PKMS)]], i emprar-lo profusament durant la realització del màster.
 
 *** Configuració de l'Emacs
 
