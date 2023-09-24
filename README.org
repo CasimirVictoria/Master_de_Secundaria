@@ -1,112 +1,106 @@
-#+title: Màster Universitari en professor/a d'educació secundària
+:PROPERTIES:
+:ID:       21b061a0-eb03-4e0b-9c52-9130b4964095
+:END:
+#+title: Màster de professor
 #+bibliography: ~/Documents/Bibliography/My_Library.bib
 #+cite_export: csl
 #+OPTIONS: html-postamble:nil
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./.css/worg.css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href=".css/worg.css" />
+
 * Sobre aquest repositori
 He creat aquest repositori per tindre centralitzada tota la informació relativa al Màster que cursaré el curs 2023-2024 i per poder realitzar un seguiment del meu treball i els coneixements que vaig adquirint.
 
 
 * Format i eines emprades
 
-Tots els programes que empraré seran lliures, gratuïts i instal·lats localment. Evidentment, estic referint-me al meu entorn personal, per al treball grupal hauré d'adaptar-me al que acorde el grup, així com entregar les tarees en el format indicat pels professors del Màster.
+Sempre que em siga possible, els programes que empraré seran lliures, gratuïts i instal·lats localment. Evidentment, estic referint-me al meu entorn personal, per al treball grupal hauré d'adaptar-me al que acorde el grup, així com entregar les tarees en el format indicat pels professors del Màster.
 
-** Emacs i Zotero
-
-Tinc la idea d'emprar [[https://git-scm.com/][git]], [[https://www.zotero.org][Zotero]] i [[https://www.gnu.org/software/emacs/][Emacs]] (amb els paquets [[https://orgmode.org/][org-mode]], [[https://www.orgroam.com/][org-roam]] i [[https://github.com/org-noter/org-noter][org-noter]]) per construir el meu sistema de gestió del coneixement [cite:@nagelKnowledgeVeryShort2014] personal ([[https://www.reddit.com/r/PKMS/][PKMS)]], i emprar-lo profusament durant la realització del màster.
-
-*** Configuració de l'Emacs
-
-Emacs és un /editor de text/ completament personalitzable mitjançant [[https://en.wikipedia.org/wiki/Emacs_Lisp][Lisp]], així que he decidit crear (amb l'ajuda de [[https://www.phind.com][phind.com]], ja que no sé programar en Lisp) algunes funcions per facilitar-me certes tasques repetitives:
+La idea és emprar [[https://git-scm.com/][git]], [[https://www.zotero.org][Zotero]] i [[https://www.gnu.org/software/emacs/][Emacs]], així comm els paquets [[https://orgmode.org/][org-mode]], [[https://www.orgroam.com/][org-roam]] i [[https://github.com/org-noter/org-noter][org-noter]] d'aquest, per construir el meu sistema de gestió del coneixement [cite:@nagelKnowledgeVeryShort2014] personal ([[https://www.reddit.com/r/PKMS/][PKMS)]], i emprar-lo profusament durant la realització del màster.
 
 
-**** Llenguatge  
+** Gestor bibliogràfic: Zotero
 
-- Per realitzar traduccions he instal·lat [[https://github.com/argosopentech/argos-translate][Argos Translate]], i he afegit algunes funcions com la següent per poder traduir qualsevol text seleccionat:
-
-
-#+BEGIN_SRC lisp
-(defun translate-to-spanish ()
-  "Translate selected text to spanish."
-  (interactive)
-  (let* ((text (buffer-substring-no-properties (region-beginning) (region-end)))
-         (output (shell-command-to-string (format "echo '%s' | argos-translate --from-lang en --to-lang es" text))))
-    (goto-char (region-end))
-    (insert "\n" output)))
-#+END_SRC
-
-- També una funció que empra [[https://github.com/apertium][apertium]] per traduir del castellà al valencià:
-
-#+begin_src lisp
-(defun traduir-al-valencià ()
-  "Traduir el text seleccionat a valencià emprant apertium."
-  (interactive)
-  (let* ((text (buffer-substring-no-properties (region-beginning) (region-end)))
-         (output (shell-command-to-string (format "echo '%s' | apertium es-cat_valencia" text))))
-    (goto-char (region-end))
-    (insert "\n" output)))
-    #+end_src
-
-- Una funció per llegir en veu alta el text, en aquest cas emprant [[https://github.com/rhasspy/piper][piper]] ("Un sistema neuronal ràpid i local de text a veu que sona genial")
-
-#+BEGIN_SRC lisp
-   (defun speak-selected-text ()
-     "Speak the text selected."
-     (interactive)
-     (let* ((text (buffer-substring-no-properties (region-beginning) (region-end)))
-	    (escaped-text (replace-regexp-in-string "'" "'\\\\''" text))
-	    (final-text (replace-regexp-in-string "\\*" "" escaped-text)))
-	    (shell-command (format "echo '%s' | piper --data-dir ~/.local/share/piper-voices/ --model
-    ~/.local/share/piper-voices/en_GB-alba-medium.onnx  --output-raw  | aplay -r 22050 -f S16_LE -t
-  raw" final-text))))
-	 #+END_SRC
+Com a gestor bibliogràfic empre [[https://www.zotero.org][Zotero]],
+#+ATTR_HTML: :width 800 :style border:2px solid black;
+#+attr_org:  :width 80
+[[file:~/Pictures/ScreenShots/Screenshot_20230924_091828.png]]
 
 
-- I una altra per transcriure fonèticament el text seleccionat, mitjançant [[https://github.com/espeak-ng/espeak-ng][espeak-ng]]:
+
+conjuntament amb:
+
+  - L'[[https://www.zotero.org/download/][extensió per al navegador web]] ([[https://www.mozilla.org/en-US/firefox/][Firefox]] en el meu cas). Facilita molt baixar els documents des d'Internet, o si el que estem llegint és una pàgina web, realitzar una captura local d'aquesta.
+    
+  - El plugin [[https://retorque.re/zotero-better-bibtex/][Better Bibtex,]] que exporta la bibliografia de Zotero a format bibtex, per emprar-la en la creació de documents en els formats org-mode o $\LaTeX$, per exemple.
+
+Ara bé, la lectura de la documentació, així com les notes de la mateixa, intentaré realitzar-les des del propi Emacs, emprant org-noter i org-roam.    
+
+** Emacs
+
+La raó per emprar Emacs és que vull emprar el mode org, i org-roam, per construir el meu sistema de gestió del coneixement.
+
+Per a les cites i referències dins d'Emacs empraré el paquet [[https://github.com/emacs-citar/citar][citar]]. En la següent captura estic inserint una referència:
+
+#+ATTR_HTML: :width 800 :style border:2px solid black;
+[[file:~/Pictures/ScreenShots/Screenshot_20230923_083923.png]]
+
+Una vegada inserida la referència, puc obrir el document al qual fa referència (que sempre intente tindre com adjunt en Zotero): 
+
+#+ATTR_HTML: :width 800 :style border:2px solid black;
+[[file:~/Pictures/ScreenShots/Screenshot_20230923_084003.png]]
+
+Per llegir i anotar els documents també empraré Emacs, fent ús [[https://github.com/weirdNox/org-noter][org-noter]] i/o [[https://github.com/vedang/pdf-tools][pdf-tools]]:
+
+#+ATTR_HTML: :width 800 :style border:2px solid black;
+#+attr_org:  :width 80
+[[file:~/Pictures/ScreenShots/Screenshot_20230923_141504.png]]
+
+
+I, en principi, totes les notes associades a una referència bibliogràfica estaran dins d'un mateix fitxer /.org/ que també constituirà un node d'/org-roam/. Les anotacions individuals també poden contituir un node independent d'org-roam. També puc en qualsevol moment buscar un node d'org-roam i si este fa referència a qualsevol document obrir-lo i continuar prenent anotacions.
+
+
+
+
+Emacs és un /editor de text/ completament personalitzable mitjançant [[https://en.wikipedia.org/wiki/Emacs_Lisp][Lisp]], així que he decidit crear (amb l'ajuda de [[https://www.phind.com][phind.com]], ja que apenes conec Lisp) algunes funcions per facilitar-me certes tasques repetitives. Així, m'he creat funcions per realitzar traduccions amb [[https://github.com/argosopentech/argos-translate][Argos Translate]], per llegir en veu alta el text sel·leccionat (en aquest cas emprant [[https://github.com/rhasspy/piper][piper]]), així com per transcriure fonèticament el text seleccionat (mitjançant [[https://github.com/espeak-ng/espeak-ng][espeak-ng]]).
+
+A continuació mostre un exemple de les funcions creades:
 
 #+BEGIN_SRC lisp
-  (defun transcript-selected-text-ipa ()
-    "Transcript the text selected in the current buffer to ipa."
+  (defun speak-selected-text ()
+    "Speak the text selected."
     (interactive)
     (let* ((text (buffer-substring-no-properties (region-beginning) (region-end)))
 	   (escaped-text (replace-regexp-in-string "'" "'\\\\''" text))
 	   (final-text (replace-regexp-in-string "\\*" "" escaped-text)))
-	   (output (shell-command-to-string (format "espeak-ng '%s' -q --ipa" final-text)))
-      (goto-char (region-end))
-      (insert "\n" output)))
-#+END_SRC
+      (shell-command (format "echo '%s' | piper --data-dir
+      ~/.local/share/piper-voices/
+    --model ~/.local/share/piper-voices/en_GB-alba-medium.onnx
+  --output-raw  | aplay -r 22050 -f S16_LE -t raw" final-text))))
+	 #+END_SRC
 
-Podem notar que les 3 funcions anteriors són modificacions d'una mateixa, ja que són funcions que passen el text seleccionat a un programa extern.
+ Totes les altres funcions són petites variacions d'aquesta, ja que són funcions que passen el text seleccionat a un programa extern.
 
-- També he instal·lat languagetool com a corrector ortogràfic i gramatical.
 
-  
 
-Així mateix, alguns dels paquets que he instal·lat en Emacs són corfu, vertico, embark, orderless, marginalia,  ....
 
-** Zotero
+*** Paquets instal·lats
 
-Com a gestor bibliogràfic empre [[https://www.zotero.org][Zotero]], conjuntament amb:
+Alguns dels paquets que he instal·lat en Emacs són corfu, vertico, embark, orderless, marginalia, languagetool, ...
 
-  - L'[[https://www.zotero.org/download/][extensió per al navegador web]] ([[https://www.mozilla.org/en-US/firefox/][Firefox]] en el meu cas). Facilita molt baixar els documents des d'Internet, o si el que estem llegint és una pàgina web, realitzar una captura local d'aquesta. No necessite baixar-lo manualment, crear un directori o estructura de directoris, etc., ja que tota la classificació la realitze directament des de Zotero.
-
-  - El plugin [[https://retorque.re/zotero-better-bibtex/][Better Bibtex,]] que exporta la bibliografia de Zotero a format bibtex, per emprar-la en la creació de documents en els formats org-mode o $\LaTeX$, per exemple.
-
-A més, Emacs permet [[https://orgmode.org/manual/Citations.html][gestionar directament les cites]] dins del mode org d'una manera molt senzilla, si bé jo les gestione emprant paquet [[https://github.com/emacs-citar/citar][citar]].
-Quan inserisc alguna cita puc obrir el document al qual fa referència (si és possible intente tindre'l com adjuntar-lo en zotero) i, si vull, realitzar anotacions dins del mateix Emacs emprant [[https://github.com/weirdNox/org-noter][org-noter]] i/o [[https://github.com/vedang/pdf-tools][pdf-tools]].
-
+És possible que més endavant puje a este repositori l'arxiu /.emacs/ amb la meua configuració.
 
 * Organització de la informació
 
-Donat que empraré org-roam no necessite guardar i classificar la informació seguint la típica estructura de directoris i subdirectoris. El que tinc pensat fer és emprar etiquetes, així com crear un node per a cadascuna de les assignatures del Màster. Així, per a cada assignatura creare un sol fitxer /.org/ que estarà al directori org-roam. Aquest fitxers estaràn també enllaçats al meu repositori /git/ local del Màster.
+Donat que empraré org-roam no necessite guardar i classificar la informació seguint la típica estructura de directoris i subdirectoris. El que tinc pensat és crear un node per a cadascuna de les assignatures del Màster, de manera que per a cada assignatura creare un sol fitxer /.org/ que estarà al directori org-roam. Aquest fitxers estaràn també enllaçats al meu repositori /git/ local del Màster.
 
 * Publicació de una web
-Donat que publicar tot el que escriga en format org-mode a html és realment directe, segurament publique una web amb el contingut elaborat per mi, i que em facilite, per exemple, accedir als apunts i treballs directament des del movil.
+Publicar tot el que escriga en format org-mode a html és realment directe, de manera que segurament publique una web amb el contingut elaborat per mi, i que em facilite, per exemple, accedir als apunts i treballs directament des del movil. La idea és mantindre la web emprant [[https://pages.github.com/][github pages]], tal com faig fer amb el [[https://casimirvictoria.github.io/TFG-Semiconductores_2D/][Treball de fi de Grau]], si bé en aquella ocasió no vaig acabar la web, ja que la vaig començar massa tard, i ara tinc pensat realitzar tot el treball en org-mode.
 
-Si bé hi ha moltes opcions que /tocar/ quan volem exportar a html, en principi sols modificare l'estil /css/ de la web creada, i per ara estic per decidir-me entre el de [[https://orgmode.org/worg/][worg]] i el de [[https://edwardtufte.github.io/tufte-css/][tufte]]
+Hi ha moltes opcions que podem configurar quan volem exportar a html, però en principi sols modificaré l'estil /css/ de la web creada, i per ara estic per decidir-me entre el de [[https://orgmode.org/worg/][worg]] i el de [[https://edwardtufte.github.io/tufte-css/][tufte]] (m'agrada molt l'estil senzill i elegant de worg.css, així com que la taula de continguts estiga plegada i siga flotant).
 
+* Notes finals
+Per finalitzar volia fer notar que encara estic començant a vore com treballar comodament amb org-roam, però amb les poques proves que he realitzat sembla que sí que l'adoptare per gestionar tota la meua informació, no sols la relativa al màster. El fet de treballar amb text pla i buscar i relacionar la informació mitjançant una base de dades, tot baix una interfaç molt senzilla m'agrada molt. A més, el fet de poder personalitzar completament l'entorn al meu gust i necessitats és una passada.
 
-* Referències en aquest document  
+* Referències
 #+print_bibliography:
-
 
