@@ -13,16 +13,18 @@ He creat aquest repositori per tindre centralitzada tota la informació relativa
 
 * Format i eines emprades
 
-Sempre que em siga possible, els programes que empraré seran lliures, gratuïts i instal·lats localment. Evidentment, estic referint-me al meu entorn personal, per al treball grupal hauré d'adaptar-me al que acorde el grup, així com entregar les tarees en el format indicat pels professors del Màster.
+Empraré [[https://git-scm.com/][git]], [[https://www.zotero.org][Zotero]] i [[https://www.gnu.org/software/emacs/][Emacs]], així comm els paquets [[https://orgmode.org/][org-mode]], [[https://www.orgroam.com/][org-roam]] i [[https://github.com/org-noter/org-noter][org-noter]] d'aquest, per construir el meu sistema de gestió del coneixement [cite:@nagelKnowledgeVeryShort2014] personal ([[https://www.reddit.com/r/PKMS/][PKMS)]], i emprar-lo profusament durant la realització del màster.
 
-La idea és emprar [[https://git-scm.com/][git]], [[https://www.zotero.org][Zotero]] i [[https://www.gnu.org/software/emacs/][Emacs]], així comm els paquets [[https://orgmode.org/][org-mode]], [[https://www.orgroam.com/][org-roam]] i [[https://github.com/org-noter/org-noter][org-noter]] d'aquest, per construir el meu sistema de gestió del coneixement [cite:@nagelKnowledgeVeryShort2014] personal ([[https://www.reddit.com/r/PKMS/][PKMS)]], i emprar-lo profusament durant la realització del màster.
+La idea és emprar programes lliures, gratuïts i tindre'ls instal·lats localment (bé siga al portatil o a la meua xarxa local, evitant els serveis /en el nuvol/). Evidentment, estic referint-me al meu entorn personal, per al treball grupal hauré d'adaptar-me al que acorde el grup, així com entregar les tarees en el format indicat pels professors del Màster.
+
+Altres alternatives que he mirat són fer ús de markdown i programes com [[https://obsidian.md/][obsidian]], [[https://logseq.com/][logseq]], ... però la versatilitat i absoluta personalització del combo Emacs/org-mode/org-roam/... m'ha fet decantar-me per esta última opció.
 
 
-** Gestor bibliogràfic: Zotero
+** TODO Gestor bibliogràfic: Zotero
 
 Com a gestor bibliogràfic empre [[https://www.zotero.org][Zotero]],
 #+ATTR_HTML: :width 800 :style border:2px solid black;
-#+attr_org:  :width 80
+#+ATTR_ORG:  :width 300
 [[file:~/Pictures/ScreenShots/Screenshot_20230924_091828.png]]
 
 
@@ -33,7 +35,7 @@ conjuntament amb:
     
   - El plugin [[https://retorque.re/zotero-better-bibtex/][Better Bibtex,]] que exporta la bibliografia de Zotero a format bibtex, per emprar-la en la creació de documents en els formats org-mode o $\LaTeX$, per exemple.
 
-Ara bé, la lectura de la documentació, així com les notes de la mateixa, intentaré realitzar-les des del propi Emacs, emprant org-noter i org-roam.    
+Ara bé, la lectura de la documentació, així com les notes de la mateixa, intentaré realitzar-les des del propi Emacs, emprant org-noter i pdf-tools.
 
 ** Emacs
 
@@ -42,26 +44,26 @@ La raó per emprar Emacs és que vull emprar el mode org, i org-roam, per constr
 Per a les cites i referències dins d'Emacs empraré el paquet [[https://github.com/emacs-citar/citar][citar]]. En la següent captura estic inserint una referència:
 
 #+ATTR_HTML: :width 800 :style border:2px solid black;
+#+ATTR_ORG:  :width 300
 [[file:~/Pictures/ScreenShots/Screenshot_20230923_083923.png]]
 
-Una vegada inserida la referència, puc obrir el document al qual fa referència (que sempre intente tindre com adjunt en Zotero): 
+Una vegada inserida la referència, puc obrir el document associat a la mateixa (que sempre intente tindre com adjunt en Zotero): 
 
 #+ATTR_HTML: :width 800 :style border:2px solid black;
+#+ATTR_ORG:  :width 300
 [[file:~/Pictures/ScreenShots/Screenshot_20230923_084003.png]]
 
-Per llegir i anotar els documents també empraré Emacs, fent ús [[https://github.com/weirdNox/org-noter][org-noter]] i/o [[https://github.com/vedang/pdf-tools][pdf-tools]]:
+Per llegir i anotar els documents també empraré Emacs, fent ús [[https://github.com/weirdNox/org-noter][org-noter]] i [[https://github.com/vedang/pdf-tools][pdf-tools]]:
 
 #+ATTR_HTML: :width 800 :style border:2px solid black;
-#+attr_org:  :width 80
+#+attr_org:  :width 300
 [[file:~/Pictures/ScreenShots/Screenshot_20230923_141504.png]]
 
 
-I, en principi, totes les notes associades a una referència bibliogràfica estaran dins d'un mateix fitxer /.org/ que també constituirà un node d'/org-roam/. Les anotacions individuals també poden contituir un node independent d'org-roam. També puc en qualsevol moment buscar un node d'org-roam i si este fa referència a qualsevol document obrir-lo i continuar prenent anotacions.
+Totes les notes associades a una referència bibliogràfica estaran dins d'un mateix fitxer /.org/ que també constituirà un node d'/org-roam/, de manera que en qualsevol moment puc buscar un node d'org-roam i si este fa referència a qualsevol document puc obrir el /pdf/ i continuar prenent anotacions.
 
 
-
-
-Emacs és un /editor de text/ completament personalitzable mitjançant [[https://en.wikipedia.org/wiki/Emacs_Lisp][Lisp]], així que he decidit crear (amb l'ajuda de [[https://www.phind.com][phind.com]], ja que apenes conec Lisp) algunes funcions per facilitar-me certes tasques repetitives. Així, m'he creat funcions per realitzar traduccions amb [[https://github.com/argosopentech/argos-translate][Argos Translate]], per llegir en veu alta el text sel·leccionat (en aquest cas emprant [[https://github.com/rhasspy/piper][piper]]), així com per transcriure fonèticament el text seleccionat (mitjançant [[https://github.com/espeak-ng/espeak-ng][espeak-ng]]).
+Emacs és un /editor de text/ completament personalitzable mitjançant [[https://en.wikipedia.org/wiki/Emacs_Lisp][Lisp]], així que he decidit crear (amb l'ajuda de [[https://www.phind.com][phind.com]], ja que apenes conec Lisp) algunes funcions per facilitar-me certes tasques repetitives. Així, m'he creat funcions per realitzar traduccions amb [[https://github.com/argosopentech/argos-translate][Argos Translate]], per llegir en veu alta el text sel·leccionat (en aquest cas emprant [[https://github.com/rhasspy/piper][piper]]) i  per transcriure fonèticament el text seleccionat (mitjançant [[https://github.com/espeak-ng/espeak-ng][espeak-ng]]) -sí, per ara, són totes per facilitar-me la comprensió de documents escrits en anglés-.
 
 A continuació mostre un exemple de les funcions creades:
 
@@ -83,7 +85,7 @@ A continuació mostre un exemple de les funcions creades:
 
 
 
-*** Paquets instal·lats
+*** Paquets adicionals
 
 Alguns dels paquets que he instal·lat en Emacs són corfu, vertico, embark, orderless, marginalia, languagetool, ...
 
