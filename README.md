@@ -1,37 +1,37 @@
 
 # Table of Contents
 
-1.  [Sobre aquest repositori](#orgfb748ca)
-2.  [Format i eines emprades](#orgaa4be93)
-    1.  [Gestor bibliogràfic: Zotero](#org84f1167)
-    2.  [Emacs](#org3f571b4)
-        1.  [Paquets adicionals](#org1642bda)
-3.  [Organització de la informació](#org4483382)
-4.  [Publicació de una web](#org8e20212)
-5.  [Notes finals](#org7aa2891)
-6.  [Referències](#orgcc9a0f5)
+1.  [Sobre aquest repositori](#org6960f42)
+2.  [Format i eines emprades](#org392d0ac)
+    1.  [Gestor bibliogràfic: Zotero](#org50e0c4e)
+    2.  [Emacs](#orgade2f96)
+        1.  [Paquets adicionals](#orgc897e7d)
+3.  [Organització de la informació](#org46d9c6a)
+4.  [Publicació de una web](#orgdcb16ac)
+5.  [Notes finals](#org4fdf3b7)
+6.  [Referències](#org5e4c171)
 
 
 
-<a id="orgfb748ca"></a>
+<a id="org6960f42"></a>
 
 # Sobre aquest repositori
 
 He creat aquest repositori per tindre centralitzada tota la informació relativa al Màster que cursaré el curs 2023-2024 i per poder realitzar un seguiment del meu treball i els coneixements que vaig adquirint.
 
 
-<a id="orgaa4be93"></a>
+<a id="org392d0ac"></a>
 
 # Format i eines emprades
 
-Empraré [git](https://git-scm.com/), [Zotero](https://www.zotero.org) i [Emacs](https://www.gnu.org/software/emacs/), així comm els paquets [org-mode](https://orgmode.org/), [org-roam](https://www.orgroam.com/) i [org-noter](https://github.com/org-noter/org-noter) d'aquest, per construir el meu sistema de gestió del coneixement (<a href="#citeproc_bib_item_1">Nagel 2014</a>) personal ([PKMS)](https://www.reddit.com/r/PKMS/), i emprar-lo profusament durant la realització del màster.
+Empraré [git](https://git-scm.com/), [Zotero](https://www.zotero.org) i [Emacs](https://www.gnu.org/software/emacs/), així comm els paquets [org-mode](https://orgmode.org/), [org-roam](https://www.orgroam.com/) i [org-noter](https://github.com/org-noter/org-noter) d'aquest, per construir el meu sistema de gestió del coneixement (Nagel, Jennifer, 2014) personal ([PKMS)](https://www.reddit.com/r/PKMS/), i emprar-lo profusament durant la realització del màster.
 
 La idea és emprar programes lliures, gratuïts i tindre'ls instal·lats localment (bé siga al portatil o a la meua xarxa local, evitant els serveis *en el nuvol*). Evidentment, estic referint-me al meu entorn personal, per al treball grupal hauré d'adaptar-me al que acorde el grup, així com entregar les tarees en el format indicat pels professors del Màster.
 
 Altres alternatives que he mirat són fer ús de markdown i programes com [obsidian](https://obsidian.md/), [logseq](https://logseq.com/), &#x2026; però la versatilitat i absoluta personalització del combo Emacs/org-mode/org-roam/&#x2026; m'ha fet decantar-me per esta última opció.
 
 
-<a id="org84f1167"></a>
+<a id="org50e0c4e"></a>
 
 ## TODO Gestor bibliogràfic: Zotero
 
@@ -48,7 +48,7 @@ conjuntament amb:
 Ara bé, la lectura de la documentació, així com les notes de la mateixa, intentaré realitzar-les des del propi Emacs, emprant org-noter i pdf-tools.
 
 
-<a id="org3f571b4"></a>
+<a id="orgade2f96"></a>
 
 ## Emacs
 
@@ -86,7 +86,7 @@ A continuació mostre un exemple de les funcions creades:
 Totes les altres funcions són petites variacions d'aquesta, ja que són funcions que passen el text seleccionat a un programa extern.
 
 
-<a id="org1642bda"></a>
+<a id="orgc897e7d"></a>
 
 ### Paquets adicionals
 
@@ -95,14 +95,14 @@ Alguns dels paquets que he instal·lat en Emacs són corfu, vertico, embark, ord
 És possible que més endavant puje a este repositori l'arxiu *.emacs* amb la meua configuració.
 
 
-<a id="org4483382"></a>
+<a id="org46d9c6a"></a>
 
 # Organització de la informació
 
 Donat que empraré org-roam no necessite guardar i classificar la informació seguint la típica estructura de directoris i subdirectoris. El que tinc pensat és crear un node per a cadascuna de les assignatures del Màster, de manera que per a cada assignatura creare un sol fitxer *.org* que estarà al directori org-roam. Aquest fitxers estaràn també enllaçats al meu repositori *git* local del Màster.
 
 
-<a id="org8e20212"></a>
+<a id="orgdcb16ac"></a>
 
 # Publicació de una web
 
@@ -111,18 +111,16 @@ Publicar tot el que escriga en format org-mode a html és realment directe, de m
 Hi ha moltes opcions que podem configurar quan volem exportar a html, però en principi sols modificaré l'estil *css* de la web creada, i per ara estic per decidir-me entre el de [worg](https://orgmode.org/worg/) i el de [tufte](https://edwardtufte.github.io/tufte-css/) (m'agrada molt l'estil senzill i elegant de worg.css, així com que la taula de continguts estiga plegada i siga flotant).
 
 
-<a id="org7aa2891"></a>
+<a id="org4fdf3b7"></a>
 
 # Notes finals
 
 Per finalitzar volia fer notar que encara estic començant a vore com treballar comodament amb org-roam, però amb les poques proves que he realitzat sembla que sí que l'adoptare per gestionar tota la meua informació, no sols la relativa al màster. El fet de treballar amb text pla i buscar i relacionar la informació mitjançant una base de dades, tot baix una interfaç molt senzilla m'agrada molt. A més, el fet de poder personalitzar completament l'entorn al meu gust i necessitats és una passada.
 
 
-<a id="orgcc9a0f5"></a>
+<a id="org5e4c171"></a>
 
 # Referències
 
-<style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
-  <div class="csl-entry"><a id="citeproc_bib_item_1"></a>Nagel, Jennifer. 2014. <i>Knowledge: A Very Short Introduction</i>. OUP Oxford.</div>
-</div>
+Nagel, Jennifer (2014). *Knowledge: {{A}} Very Short Introduction*, {OUP Oxford}.
 

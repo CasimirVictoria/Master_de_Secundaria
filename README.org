@@ -3,7 +3,7 @@
 :END:
 #+title: Màster de professor
 #+bibliography: ~/Documents/Bibliography/My_Library.bib
-#+cite_export: csl
+
 #+OPTIONS: html-postamble:nil
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href=".css/worg.css" />
 
