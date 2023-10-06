@@ -37,19 +37,19 @@ Per a les cites i referències dins d'Emacs empraré el paquet [[https://github.
 
 #+ATTR_HTML: :width 800 :style border:2px solid black;
 #+ATTR_ORG:  :width 300
-[[file:~/Pictures/ScreenShots/Screenshot_20230923_083923.png]]
+[[file:./Pictures/ScreenShots/Screenshot_20230923_083923.png]]
 
 Una vegada inserida la referència, puc obrir el document associat a la mateixa (que sempre intente tindre com adjunt en Zotero): 
 
 #+ATTR_HTML: :width 800 :style border:2px solid black;
 #+ATTR_ORG:  :width 300
-[[file:~/Pictures/ScreenShots/Screenshot_20230923_084003.png]]
+[[file:./Pictures/ScreenShots/Screenshot_20230923_084003.png]]
 
 Per llegir i anotar els documents també empraré Emacs, fent ús d'[[https://github.com/weirdNox/org-noter][org-noter]] i [[https://github.com/vedang/pdf-tools][pdf-tools]]:
 
 #+ATTR_HTML: :width 800 :style border:2px solid black;
 #+attr_org:  :width 300
-[[file:~/Pictures/ScreenShots/Screenshot_20230923_141504.png]]
+[[file:./Pictures/ScreenShots/Screenshot_20230923_141504.png]]
 
 
 Totes les notes associades a una referència bibliogràfica estaran dins d'un mateix fitxer /.org/ que també constituirà un node d'/org-roam/, de manera que en qualsevol moment puc buscar un node d'org-roam i si este fa referència a qualsevol document puc obrir el /pdf/ i continuar prenent anotacions. Evidentment, les idees que considere més important les guardaré en el meu /repositori/ de notes d'org-roam.
